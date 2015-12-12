@@ -10,7 +10,7 @@ var Codheadz;
         function Player(game, x, y) {
             _super.call(this, game, x, y, 'simon', 0);
             this.anchor.setTo(0.5, 0);
-            this.animations.add('walk', [0, 1, 2, 3, 4], 10, true);
+            this.animations.add('walk', [0, 1, 2, 3], 10, true);
             game.add.existing(this);
             //  We need to enable physics on the player
             game.physics.arcade.enable(this);

@@ -6,7 +6,8 @@ module Codheadz {
         platforms: Phaser.Group;
 
         create() {
-            //this.background = this.add.sprite(0, 0, 'level1');
+            this.background = this.add.sprite(0, 0, 'level1');
+                       
             //this.music = this.add.audio('music', 1, false);
             //this.music.play();
 
@@ -43,7 +44,6 @@ module Codheadz {
 
             this.player = new Player(this.game, 130, 284);
             this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
-
          
         }
 

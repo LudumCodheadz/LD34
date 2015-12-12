@@ -5,7 +5,7 @@ module Codheadz {
 
             this.anchor.setTo(0.5, 0);
 
-            this.animations.add('walk', [0, 1, 2, 3, 4], 10, true);
+            this.animations.add('walk', [0, 1, 2, 3], 10, true);
 
             game.add.existing(this);
 

@@ -11,7 +11,7 @@ var Codheadz;
             _super.apply(this, arguments);
         }
         Level1.prototype.create = function () {
-            //this.background = this.add.sprite(0, 0, 'level1');
+            this.background = this.add.sprite(0, 0, 'level1');
             //this.music = this.add.audio('music', 1, false);
             //this.music.play();
             //  We're going to be using physics, so enable the Arcade Physics system
