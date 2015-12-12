@@ -1,4 +1,4 @@
-module Codheadz {
+﻿module Codheadz {
 
     export class Game extends Phaser.Game {
 

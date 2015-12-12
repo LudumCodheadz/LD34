@@ -20,6 +20,8 @@ var Codheadz;
             this.load.audio('music', 'assets/title.mp3', true);
             this.load.spritesheet('simon', 'assets/simon.png', 58, 96, 5);
             this.load.image('level1', 'assets/level1.png');
+            this.load.image('menulevel1', 'assets/menulevel1.png');
+            this.load.image('button', 'assets/button1.png');
         };
         Preloader.prototype.create = function () {
             var tween = this.add.tween(this.preloadBar).to({ alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);

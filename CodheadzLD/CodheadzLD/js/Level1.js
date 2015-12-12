@@ -15,6 +15,7 @@ var Codheadz;
             this.music = this.add.audio('music', 1, false);
             this.music.play();
             this.player = new Codheadz.Player(this.game, 130, 284);
+            this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
         };
         return Level1;
     })(Phaser.State);

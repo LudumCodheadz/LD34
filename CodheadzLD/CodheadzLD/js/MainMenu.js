@@ -11,16 +11,23 @@ var Codheadz;
             _super.apply(this, arguments);
         }
         MainMenu.prototype.create = function () {
-            this.background = this.add.sprite(0, 0, 'titlepage');
-            this.background.alpha = 0;
+            //  this.background = this.add.sprite(0, 0, 'titlepage');
+            // this.background.alpha = 0;
             this.logo = this.add.sprite(this.world.centerX, -300, 'logo');
             this.logo.anchor.setTo(0.5, 0.5);
-            this.add.tween(this.background).to({ alpha: 1 }, 2000, Phaser.Easing.Bounce.InOut, true);
+            //this.add.tween(this.background).to({ alpha: 1}, 2000, Phaser.Easing.Bounce.InOut, true);
             this.add.tween(this.logo).to({ y: 220 }, 2000, Phaser.Easing.Elastic.Out, true, 2000);
-            this.input.onDown.addOnce(this.fadeOut, this);
+            new Codheadz.LabelButton(this.game, 20, 200, 'button', 'Press Me Too', this.actionClickLevelOne, this, 0, 0, 0, 0);
+            //new LabelButton(this.game, 20, 280, 'button', 'Cards Play', this.actionClickCardsPlay, this, 0, 0, 0, 0);
+        };
+        MainMenu.prototype.actionClickCardsPlay = function () {
+            this.game.state.start('CardsPlay', true, false);
+        };
+        MainMenu.prototype.actionClickLevelOne = function () {
+            this.fadeOut();
         };
         MainMenu.prototype.fadeOut = function () {
-            this.add.tween(this.background).to({ alpha: 0 }, 2000, Phaser.Easing.Linear.None, true);
+            //this.add.tween(this.background).to({ alpha: 0 }, 2000, Phaser.Easing.Linear.None, true);
             var tween = this.add.tween(this.logo).to({ y: 800 }, 2000, Phaser.Easing.Linear.None, true);
             tween.onComplete.add(this.startGame, this);
         };

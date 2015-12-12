@@ -1,6 +1,5 @@
 module Codheadz {
 
-
     export class Preloader extends Phaser.State {
 
         preloadBar: Phaser.Sprite;
@@ -17,6 +16,10 @@ module Codheadz {
             this.load.audio('music', 'assets/title.mp3', true);
             this.load.spritesheet('simon', 'assets/simon.png', 58, 96, 5);
             this.load.image('level1', 'assets/level1.png');
+            this.load.image('menulevel1', 'assets/menulevel1.png');
+            this.load.image('button', 'assets/button1.png');
+
+            
 
         }
 

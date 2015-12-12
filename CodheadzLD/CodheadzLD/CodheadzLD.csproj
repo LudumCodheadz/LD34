@@ -23,6 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="assets\button1.png" />
     <Content Include="assets\level1.png" />
     <Content Include="assets\loader.png" />
     <Content Include="assets\logo.png" />
@@ -37,6 +38,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="js\Boot.ts" />
+    <TypeScriptCompile Include="js\Extensions.ts" />
     <TypeScriptCompile Include="js\Game.ts" />
     <TypeScriptCompile Include="js\Level1.ts" />
     <TypeScriptCompile Include="js\MainMenu.ts" />
