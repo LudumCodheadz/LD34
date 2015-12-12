@@ -21,7 +21,7 @@ module Codheadz {
         update() {
             if (this.body.touching.down) {
                 if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP)) {
-                    this.body.velocity.y = -200;
+                    this.body.velocity.y = -280;
                 }
 
                 this.body.velocity.x = 0;

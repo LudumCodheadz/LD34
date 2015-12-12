@@ -29,8 +29,8 @@ var Codheadz;
             ledge.body.immovable = true;
             ledge = this.platforms.create(352, 400, 'ground', 1);
             ledge.body.immovable = true;
-            for (var n = 0; n < 9; n++) {
-                ledge = this.platforms.create(n * 32, 600, 'ground', 1);
+            for (var n = 0; n < 4; n++) {
+                ledge = this.platforms.create(n * 32, 650, 'ground', 1);
                 ledge.body.immovable = true;
             }
             for (var n = 4; n < 6; n++) {
