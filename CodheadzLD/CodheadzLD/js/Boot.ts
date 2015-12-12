@@ -5,7 +5,6 @@
         preload() {
 
             this.load.image('preloadBar', 'assets/loader.png');
-
         }
 
         create() {

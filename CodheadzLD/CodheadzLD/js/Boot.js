@@ -3,8 +3,8 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var Castlevania;
-(function (Castlevania) {
+var Codheadz;
+(function (Codheadz) {
     var Boot = (function (_super) {
         __extends(Boot, _super);
         function Boot() {
@@ -26,6 +26,6 @@ var Castlevania;
         };
         return Boot;
     })(Phaser.State);
-    Castlevania.Boot = Boot;
-})(Castlevania || (Castlevania = {}));
+    Codheadz.Boot = Boot;
+})(Codheadz || (Codheadz = {}));
 //# sourceMappingURL=Boot.js.map

@@ -1,4 +1,4 @@
 window.onload = function () {
-    var game = new Castlevania.Game();
+    var game = new Codheadz.Game();
 };
 //# sourceMappingURL=app.js.map

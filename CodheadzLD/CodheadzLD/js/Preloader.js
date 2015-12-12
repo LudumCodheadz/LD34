@@ -12,7 +12,8 @@ var Codheadz;
         }
         Preloader.prototype.preload = function () {
             //  Set-up our preloader sprite
-            this.preloadBar = this.add.sprite(200, 250, 'preloadBar');
+            this.preloadBar = this.add.sprite(this.game.canvas.width / 2, 250, 'preloadBar');
+            this.preloadBar.anchor.set(0.5, 0.5);
             this.load.setPreloadSprite(this.preloadBar);
             //  Load our actual games assets
             this.load.image('titlepage', 'assets/titlepage.jpg');
@@ -22,13 +23,15 @@ var Codheadz;
             this.load.image('level1', 'assets/level1.png');
             this.load.image('menulevel1', 'assets/menulevel1.png');
             this.load.image('button', 'assets/button1.png');
+            this.load.spritesheet('ground', 'assets/ground.png', 32, 32, 5);
         };
         Preloader.prototype.create = function () {
             var tween = this.add.tween(this.preloadBar).to({ alpha: 0 }, 1000, Phaser.Easing.Linear.None, true);
             tween.onComplete.add(this.startMainMenu, this);
         };
         Preloader.prototype.startMainMenu = function () {
-            this.game.state.start('MainMenu', true, false);
+            this.game.state.start('Level1', true, false);
+            //this.game.state.start('MainMenu', true, false);
         };
         return Preloader;
     })(Phaser.State);

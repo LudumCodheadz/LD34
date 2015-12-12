@@ -12,6 +12,12 @@ var Codheadz;
             this.anchor.setTo(0.5, 0);
             this.animations.add('walk', [0, 1, 2, 3, 4], 10, true);
             game.add.existing(this);
+            //  We need to enable physics on the player
+            game.physics.arcade.enable(this);
+            //  Player physics properties. Give the little guy a slight bounce.
+            this.body.bounce.y = 0.2;
+            this.body.gravity.y = 300;
+            this.body.collideWorldBounds = true;
         }
         Player.prototype.update = function () {
             this.body.velocity.x = 0;

@@ -7,7 +7,8 @@ module Codheadz {
         preload() {
 
             //  Set-up our preloader sprite
-            this.preloadBar = this.add.sprite(200, 250, 'preloadBar');
+            this.preloadBar = this.add.sprite(this.game.canvas.width / 2, 250, 'preloadBar');
+            this.preloadBar.anchor.set(0.5, 0.5);
             this.load.setPreloadSprite(this.preloadBar);
 
             //  Load our actual games assets
@@ -19,7 +20,7 @@ module Codheadz {
             this.load.image('menulevel1', 'assets/menulevel1.png');
             this.load.image('button', 'assets/button1.png');
 
-            
+            this.load.spritesheet('ground', 'assets/ground.png', 32, 32, 5);
 
         }
 
@@ -32,7 +33,8 @@ module Codheadz {
 
         startMainMenu() {
 
-            this.game.state.start('MainMenu', true, false);
+            this.game.state.start('Level1', true, false);
+            //this.game.state.start('MainMenu', true, false);
 
         }
 
