@@ -16,32 +16,35 @@ module Codheadz {
             this.body.bounce.y = 0.2;
             this.body.gravity.y = 300;
             this.body.collideWorldBounds = true;
-            
         }
 
         update() {
-            
-
-            this.body.velocity.x = 0;
-
-            if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
-                this.body.velocity.x = -150;
-                this.animations.play('walk');
-
-                if (this.scale.x == 1) {
-                    this.scale.x = -1;
+            if (this.body.touching.down) {
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP)) {
+                    this.body.velocity.y = -200;
                 }
-            }
-            else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
-                this.body.velocity.x = 150;
-                this.animations.play('walk');
 
-                if (this.scale.x == -1) {
-                    this.scale.x = 1;
+                this.body.velocity.x = 0;
+
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
+                    this.body.velocity.x = -150;
+                    this.animations.play('walk');
+
+                    if (this.scale.x == 1) {
+                        this.scale.x = -1;
+                    }
                 }
-            }
-            else {
-                this.animations.frame = 0;
+                else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
+                    this.body.velocity.x = 150;
+                    this.animations.play('walk');
+
+                    if (this.scale.x == -1) {
+                        this.scale.x = 1;
+                    }
+                }
+                else {
+                    this.animations.frame = 0;
+                }
             }
         }
     }
