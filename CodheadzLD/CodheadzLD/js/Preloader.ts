@@ -17,11 +17,10 @@ module Codheadz {
             this.load.audio('music', 'assets/title.mp3', true);
             this.load.spritesheet('simon', 'assets/simon.png', 32, 32, 4);
             this.load.image('level1', 'assets/level1.png');
+            this.load.image('level2', 'assets/level2.png');
             this.load.image('button', 'assets/button1.png');
             
             this.load.spritesheet('ground', 'assets/ground.png', 32, 32, 5);
-
-
 
         }
 

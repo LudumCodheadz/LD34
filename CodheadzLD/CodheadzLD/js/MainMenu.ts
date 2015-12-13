@@ -24,7 +24,7 @@ module Codheadz {
                 'font-weight': 'bold'
             };
 
-            this.jumpInstr = this.add.text(this.world.centerX, 400, "Press A to jump", textStyle);
+            this.jumpInstr = this.add.text(this.world.centerX, 400, "Press J to jump", textStyle);
             this.changeInstr = this.add.text(this.world.centerX, 450, "Press D to change direction", textStyle);
             this.goalInstr = this.add.text(this.world.centerX, 500, "Climb as high as you can", textStyle);
             this.jumpInstr.anchor.setTo(0.5, 0.5);

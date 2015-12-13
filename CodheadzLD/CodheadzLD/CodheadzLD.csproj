@@ -26,6 +26,7 @@
     <Content Include="assets\button1.png" />
     <Content Include="assets\ground.png" />
     <Content Include="assets\level1.png" />
+    <Content Include="assets\level2.png" />
     <Content Include="assets\loader.png" />
     <Content Include="assets\logo.png" />
     <Content Include="assets\simon.png" />
