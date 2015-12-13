@@ -21,7 +21,8 @@ var Codheadz;
         }
         Player.prototype.update = function () {
             if (this.body.touching.down) {
-                if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP)) {
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP)
+                    || this.game.input.keyboard.isDown(Phaser.Keyboard.A)) {
                     this.body.velocity.y = -300;
                 }
             }

@@ -29,8 +29,8 @@ var Codheadz;
             tween.onComplete.add(this.startMainMenu, this);
         };
         Preloader.prototype.startMainMenu = function () {
-            this.game.state.start('Level1', true, false);
-            //this.game.state.start('MainMenu', true, false);
+            //this.game.state.start('Level1', true, false);
+            this.game.state.start('MainMenu', true, false);
         };
         return Preloader;
     })(Phaser.State);

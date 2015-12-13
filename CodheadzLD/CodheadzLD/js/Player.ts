@@ -19,15 +19,14 @@ module Codheadz {
         }
 
         update() {
-
             if (this.body.touching.down) {
-                if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP)) {
+                if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP)
+                    || this.game.input.keyboard.isDown(Phaser.Keyboard.A)) {
                     this.body.velocity.y = -300;
                 }
             }
 
             if (this.body.touching.left || this.body.position.x == 0) {
-
                 this.animations.play('walk');
 
                 this.body.velocity.x = 150;
@@ -37,7 +36,6 @@ module Codheadz {
             }
 
             if (this.body.touching.right) {
-
                 this.animations.play('walk');
 
                 this.body.velocity.x = -150;
@@ -54,7 +52,6 @@ module Codheadz {
                 }
             }
 
-            
             //if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
             //    this.body.velocity.x = -150;
             //    this.animations.play('walk');
