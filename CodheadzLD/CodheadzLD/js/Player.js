@@ -22,27 +22,47 @@ var Codheadz;
         Player.prototype.update = function () {
             if (this.body.touching.down) {
                 if (this.game.input.keyboard.isDown(Phaser.Keyboard.UP)) {
-                    this.body.velocity.y = -280;
-                }
-                this.body.velocity.x = 0;
-                if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
-                    this.body.velocity.x = -150;
-                    this.animations.play('walk');
-                    if (this.scale.x == 1) {
-                        this.scale.x = -1;
-                    }
-                }
-                else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
-                    this.body.velocity.x = 150;
-                    this.animations.play('walk');
-                    if (this.scale.x == -1) {
-                        this.scale.x = 1;
-                    }
-                }
-                else {
-                    this.animations.frame = 0;
+                    this.body.velocity.y = -300;
                 }
             }
+            if (this.body.touching.left || this.body.position.x == 0) {
+                this.animations.play('walk');
+                this.body.velocity.x = 150;
+                if (this.scale.x == -1) {
+                    this.scale.x = 1;
+                }
+            }
+            if (this.body.touching.right) {
+                this.animations.play('walk');
+                this.body.velocity.x = -150;
+                if (this.scale.x == 1) {
+                    this.scale.x = -1;
+                }
+            }
+            // This by luck catches when the player is on the right side of the screen
+            if (this.body.velocity.x == 0) {
+                this.body.velocity.x = -150;
+                if (this.scale.x == 1) {
+                    this.scale.x = -1;
+                }
+            }
+            //if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
+            //    this.body.velocity.x = -150;
+            //    this.animations.play('walk');
+            //    if (this.scale.x == 1) {
+            //        this.scale.x = -1;
+            //    }
+            //}
+            //else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
+            //    this.body.velocity.x = 150;
+            //    this.animations.play('walk');
+            //    if (this.scale.x == -1) {
+            //        this.scale.x = 1;
+            //    }
+            //}
+            //else {
+            //    //this.animations.frame = 0;
+            //}
         };
         return Player;
     })(Phaser.Sprite);

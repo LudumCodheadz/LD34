@@ -22,7 +22,6 @@ var Codheadz;
             this.load.spritesheet('simon', 'assets/simon.png', 32, 32, 4);
             this.load.image('level1', 'assets/level1.png');
             this.load.image('button', 'assets/button1.png');
-            this.load.tilemap;
             this.load.spritesheet('ground', 'assets/ground.png', 32, 32, 5);
         };
         Preloader.prototype.create = function () {
