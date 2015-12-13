@@ -15,8 +15,8 @@ var Codheadz;
             //  We need to enable physics on the player
             game.physics.arcade.enable(this);
             //  Player physics properties. Give the little guy a slight bounce.
-            this.body.bounce.y = 0.2;
-            this.body.gravity.y = 300;
+            this.body.bounce.y = 0.1;
+            this.body.gravity.y = 400;
             this.body.collideWorldBounds = true;
         }
         Player.prototype.update = function () {
@@ -47,23 +47,6 @@ var Codheadz;
                     this.scale.x = -1;
                 }
             }
-            //if (this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT)) {
-            //    this.body.velocity.x = -150;
-            //    this.animations.play('walk');
-            //    if (this.scale.x == 1) {
-            //        this.scale.x = -1;
-            //    }
-            //}
-            //else if (this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT)) {
-            //    this.body.velocity.x = 150;
-            //    this.animations.play('walk');
-            //    if (this.scale.x == -1) {
-            //        this.scale.x = 1;
-            //    }
-            //}
-            //else {
-            //    //this.animations.frame = 0;
-            //}
         };
         return Player;
     })(Phaser.Sprite);
