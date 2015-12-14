@@ -18,9 +18,7 @@ var Codheadz;
                 'font-weight': 'bold'
             };
             this.debugText = this.game.add.text(1, 1, "d", style);
-            //  We need to enable physics on the player
             game.physics.arcade.enable(this);
-            //  Player physics properties. Give the little guy a slight bounce.
             this.body.bounce.y = 0.1;
             this.body.gravity.y = 400;
             this.body.collideWorldBounds = true;
@@ -67,7 +65,6 @@ var Codheadz;
                     this.scale.x = -1;
                 }
             }
-            // This by luck catches when the player is on the right side of the screen
             if (this.body.velocity.x == 0) {
                 this.body.velocity.x = -150;
                 if (this.scale.x == 1) {
@@ -79,4 +76,3 @@ var Codheadz;
     })(Phaser.Sprite);
     Codheadz.Player = Player;
 })(Codheadz || (Codheadz = {}));
-//# sourceMappingURL=Player.js.map

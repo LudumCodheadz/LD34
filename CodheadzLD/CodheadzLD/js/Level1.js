@@ -69,12 +69,10 @@ var Codheadz;
             //this.music.play();
             this.game.add.tileSprite(0, 0, 480, 3200, 'level2');
             this.game.world.setBounds(0, 0, 480, 3200);
-            //  We're going to be using physics, so enable the Arcade Physics system
             this.game.physics.startSystem(Phaser.Physics.ARCADE);
             this.player = new Codheadz.Player(this.game, 400, 3000);
             this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
             this.game.camera.follow(this.player);
-            //  The platforms group contains the ground and the 2 ledges we can jump on
             this.platforms = this.game.add.group();
             this.platforms.enableBody = true;
             var rowY = this.world.height - 32;
@@ -97,11 +95,9 @@ var Codheadz;
             }
         };
         Level1.prototype.update = function () {
-            //  Collide the player and the stars with the platforms
             this.game.physics.arcade.collide(this.player, this.platforms);
         };
         return Level1;
     })(Phaser.State);
     Codheadz.Level1 = Level1;
 })(Codheadz || (Codheadz = {}));
-//# sourceMappingURL=Level1.js.map

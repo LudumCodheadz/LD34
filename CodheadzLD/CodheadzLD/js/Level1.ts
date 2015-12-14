@@ -11,32 +11,28 @@ module Codheadz {
 
             this.game.add.tileSprite(0, 0, 480, 3200, 'level2');
             this.game.world.setBounds(0, 0, 480, 3200);
-            
+
             //  We're going to be using physics, so enable the Arcade Physics system
             this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
             this.player = new Player(this.game, 400, 3000);
             this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
-            
+
             this.game.camera.follow(this.player);
-            
+
             //  The platforms group contains the ground and the 2 ledges we can jump on
             this.platforms = this.game.add.group();
             this.platforms.enableBody = true;
 
             var rowY = this.world.height - 32;
             for (var r in this.platformData.rows) {
-
                 var platformRow = this.platformData.rows[r];
                 if (platformRow.length > 0) {
-
                     window.console.warn(platformRow);
                     var x = 0;
                     for (var t in platformRow) {
-                    
                         var tile = platformRow[t];
                         if (tile != " ") {
-
                             var frame = +tile;
 
                             var g = this.platforms.create(x, rowY, 'ground', frame);
@@ -45,19 +41,16 @@ module Codheadz {
 
                         x = x + 32;
                     }
-
                 }
 
                 rowY = rowY - 32;
             }
-         
         }
 
         update() {
             //  Collide the player and the stars with the platforms
             this.game.physics.arcade.collide(this.player, this.platforms);
         }
-
 
         platformData: any =
         {
@@ -112,11 +105,6 @@ module Codheadz {
                 "             2",
                 "",
                 "",
-
-
-                
-                
-
 
             ]
         };
