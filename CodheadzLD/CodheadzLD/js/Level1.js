@@ -14,13 +14,13 @@ var Codheadz;
                     "000000000000000",
                     "",
                     "",
-                    "   1111",
+                    "   2211111",
                     "",
                     "",
                     "           1111",
-                    "2222",
+                    "11111",
                     "",
-                    "        222   ",
+                    "        111   ",
                     "",
                     "",
                     "           1111",
@@ -29,9 +29,9 @@ var Codheadz;
                     "      11",
                     "",
                     "",
-                    "           1111",
+                    "           1112",
                     "",
-                    "         22",
+                    "         11",
                     "",
                     "111",
                     "",
@@ -39,26 +39,32 @@ var Codheadz;
                     "",
                     "           1111",
                     "",
-                    "      222",
+                    "      111",
                     "",
                     "",
                     "2             1",
                     "",
                     "",
-                    "      222",
+                    "      111",
+                    "",
+                    "",
+                    "1             2",
+                    "",
+                    "",
+                    "      111",
                     "",
                     "1111",
                     "",
                     "",
-                    "      22",
+                    "      11",
                     "",
-                    "             2",
-                    "",
-                    "",
-                    "             2",
+                    "             1",
                     "",
                     "",
-                    "             2",
+                    "             1",
+                    "",
+                    "",
+                    "             1",
                     "",
                     "",
                 ]
@@ -69,17 +75,19 @@ var Codheadz;
             //this.music.play();
             this.game.add.tileSprite(0, 0, 480, 3200, 'level2');
             this.game.world.setBounds(0, 0, 480, 3200);
+            //  We're going to be using physics, so enable the Arcade Physics system
             this.game.physics.startSystem(Phaser.Physics.ARCADE);
             this.player = new Codheadz.Player(this.game, 400, 3000);
             this.game.physics.enable(this.player, Phaser.Physics.ARCADE);
             this.game.camera.follow(this.player);
+            //  The platforms group contains the ground and the 2 ledges we can jump on
             this.platforms = this.game.add.group();
             this.platforms.enableBody = true;
+            this.spikes = this.game.add.group();
             var rowY = this.world.height - 32;
             for (var r in this.platformData.rows) {
                 var platformRow = this.platformData.rows[r];
                 if (platformRow.length > 0) {
-                    window.console.warn(platformRow);
                     var x = 0;
                     for (var t in platformRow) {
                         var tile = platformRow[t];
@@ -87,17 +95,29 @@ var Codheadz;
                             var frame = +tile;
                             var g = this.platforms.create(x, rowY, 'ground', frame);
                             g.body.immovable = true;
+                            if (frame == 2) {
+                                var spike = this.spikes.create(x, rowY - 32, 'ground', 4);
+                                this.game.physics.arcade.enable(spike);
+                            }
                         }
                         x = x + 32;
                     }
                 }
                 rowY = rowY - 32;
             }
+            this.score = 0;
+        };
+        Level1.prototype.spikePlatformCallback = function (player, spike) {
+            this.score++;
+            player.death();
         };
         Level1.prototype.update = function () {
+            //  Collide the player and the stars with the platforms
             this.game.physics.arcade.collide(this.player, this.platforms);
+            this.game.physics.arcade.overlap(this.player, this.spikes, this.spikePlatformCallback, null, this);
         };
         return Level1;
     })(Phaser.State);
     Codheadz.Level1 = Level1;
 })(Codheadz || (Codheadz = {}));
+//# sourceMappingURL=Level1.js.map

@@ -65,3 +65,4 @@ var Codheadz;
     })(Phaser.State);
     Codheadz.MainMenu = MainMenu;
 })(Codheadz || (Codheadz = {}));
+//# sourceMappingURL=MainMenu.js.map

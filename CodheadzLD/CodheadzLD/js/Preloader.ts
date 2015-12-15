@@ -15,7 +15,7 @@ module Codheadz {
             this.load.image('titlepage', 'assets/titlepage.jpg');
             this.load.image('logo', 'assets/logo.png');
             this.load.audio('music', 'assets/title.mp3', true);
-            this.load.spritesheet('simon', 'assets/simon.png', 32, 32, 4);
+            this.load.spritesheet('simon', 'assets/simon.png', 32, 32, 8);
             this.load.image('level1', 'assets/level1.png');
             this.load.image('level2', 'assets/level2.png');
             this.load.image('button', 'assets/button1.png');
@@ -33,8 +33,8 @@ module Codheadz {
 
         startMainMenu() {
 
-            //this.game.state.start('Level1', true, false);
-            this.game.state.start('MainMenu', true, false);
+            this.game.state.start('Level1', true, false);
+            //this.game.state.start('MainMenu', true, false);
 
         }
 

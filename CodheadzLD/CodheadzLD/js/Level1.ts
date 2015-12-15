@@ -4,6 +4,7 @@ module Codheadz {
         //music: Phaser.Sound;
         player: Codheadz.Player;
         platforms: Phaser.Group;
+        spikes: Phaser.Group;
 
         create() {
             //this.music = this.add.audio('music', 1, false);
@@ -24,11 +25,12 @@ module Codheadz {
             this.platforms = this.game.add.group();
             this.platforms.enableBody = true;
 
+            this.spikes = this.game.add.group();
+
             var rowY = this.world.height - 32;
             for (var r in this.platformData.rows) {
                 var platformRow = this.platformData.rows[r];
                 if (platformRow.length > 0) {
-                    window.console.warn(platformRow);
                     var x = 0;
                     for (var t in platformRow) {
                         var tile = platformRow[t];
@@ -37,6 +39,11 @@ module Codheadz {
 
                             var g = this.platforms.create(x, rowY, 'ground', frame);
                             g.body.immovable = true;
+
+                            if (frame == 2) {
+                                var spike = this.spikes.create(x, rowY - 32, 'ground', 4);
+                                this.game.physics.arcade.enable(spike);
+                            }
                         }
 
                         x = x + 32;
@@ -45,11 +52,22 @@ module Codheadz {
 
                 rowY = rowY - 32;
             }
+
+            
+            this.score = 0;
+        }
+
+        score: number;
+
+        spikePlatformCallback(player: Player, spike: Phaser.Sprite) {
+            this.score++;
+            player.death();
         }
 
         update() {
             //  Collide the player and the stars with the platforms
             this.game.physics.arcade.collide(this.player, this.platforms);
+            this.game.physics.arcade.overlap(this.player, this.spikes, this.spikePlatformCallback, null, this);
         }
 
         platformData: any =
@@ -58,13 +76,13 @@ module Codheadz {
                 "000000000000000",
                 "",
                 "",
-                "   1111",
+                "   2211111",
                 "",
                 "",
                 "           1111",
-                "2222",
+                "11111",
                 "",
-                "        222   ",
+                "        111   ",
                 "",
                 "",
                 "           1111",
@@ -73,9 +91,9 @@ module Codheadz {
                 "      11",
                 "",
                 "",
-                "           1111",
+                "           1112",
                 "",
-                "         22",
+                "         11",
                 "",
                 "111",
                 "",
@@ -83,26 +101,32 @@ module Codheadz {
                 "",
                 "           1111",
                 "",
-                "      222",
+                "      111",
                 "",
                 "",
                 "2             1",
                 "",
                 "",
-                "      222",
+                "      111",
+                "",
+                "",
+                "1             2",
+                "",
+                "",
+                "      111",
                 "",
                 "1111",
                 "",
                 "",
-                "      22",
+                "      11",
                 "",
-                "             2",
-                "",
-                "",
-                "             2",
+                "             1",
                 "",
                 "",
-                "             2",
+                "             1",
+                "",
+                "",
+                "             1",
                 "",
                 "",
 

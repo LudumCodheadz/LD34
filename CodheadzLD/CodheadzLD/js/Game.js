@@ -19,3 +19,4 @@ var Codheadz;
     })(Phaser.Game);
     Codheadz.Game = Game;
 })(Codheadz || (Codheadz = {}));
+//# sourceMappingURL=Game.js.map
